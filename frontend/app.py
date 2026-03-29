@@ -1,7 +1,10 @@
 import streamlit as st
 import requests
+import os
 
-API_URL = "http://localhost:8000/research"
+# 💡 Use the Render backend URL if deployed, otherwise fallback to localhost
+BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
+API_URL = f"{BACKEND_URL}/research"
 
 st.set_page_config(
     page_title="Multi-Agent Research Assistant",
